@@ -12,7 +12,9 @@ const DarkModeToggle = () => {
         <div className={ styles.container } onClick={ toggle }>
             <Image src="/darkmode.svg" alt='' width={ 14 } height={ 14 } className={ styles.icon } />
             <Image src="/lightmode.svg" alt='' width={ 14 } height={ 14 } className={ styles.icon } />
-            <div className={ styles.ball } style={ mode === 'light' ? { left: '2px' } : { right: '2px' } }></div>
+            <div className={ `${styles.ball} ${ mode ==='light' ? styles.left : styles.right}` } ></div>
+
+            {/* style={ mode === 'light' ? { left: '2px' } : { right: '2px' } } */}
         </div>
     )
 }

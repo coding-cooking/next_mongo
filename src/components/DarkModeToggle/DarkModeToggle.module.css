@@ -18,7 +18,16 @@
   background-color: #53c28b;
   border-radius: 50%;
   position: absolute;
-  transition: left 2s ease;
+  transition: all 600ms ease;
 }
 
+.left{
+  position: absolute;
+  left: 2px;  
+}
 
+.right {
+  position: absolute;
+  /* 用left控制，那就都用left，才会有动画效果 */
+  left: calc(100% - 17px)
+}
