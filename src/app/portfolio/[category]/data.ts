@@ -1,4 +1,15 @@
-export const items = {
+export type ItemProps = {
+	id: number;
+	title: string;
+	desc: string;
+	image: string;
+}
+
+export type ItemsProps = {
+	[key: string]: ItemProps[];
+}
+
+export const items: ItemsProps = {
 	applications: [
 		{
 			id: 1,

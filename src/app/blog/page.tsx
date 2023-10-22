@@ -2,6 +2,16 @@ import styles from './page.module.css'
 import Link from 'next/link'
 import Image from 'next/image'
 
+type PostProps = {
+  title: string;
+  desc: string;
+  img: string;
+  content: string;
+  userName: string;
+  _id?: string;
+  id?: string;
+}
+
 async function getData() {
   try {
     const res = await fetch('http://localhost:3000/api/posts', {
@@ -14,12 +24,12 @@ async function getData() {
 }
 
 const Blog = async () => {
-  const data = await getData();
+  const data: PostProps[] = await getData();
   
   return (
     <div className={ styles.mainContainer }>
       {
-        data?.map(item => (
+        data?.map((item)=> (
           <Link href={`blog/${item._id}`} className={ styles.container } key={ `${item.id}-${item.title}` }>
             <div className={ styles.imageContainer }>
               <Image

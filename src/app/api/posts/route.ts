@@ -1,16 +1,18 @@
 
-import  connectDb from "@/utils/db";
-import { NextResponse } from "next/server";
-import Post from "@/models/Post";
+import connectDb from "@/src/utils/db";
+import { NextRequest, NextResponse } from "next/server";
+import Post from "@/src/models/Post";
 
-export const GET = async (request) => {
+export const GET = async (request: NextRequest) => {
     const url = new URL(request.url);
 
     const userName = url.searchParams.get('userName');
 
+    const filter = userName ? { userName } : {}; 
+
     try{
         await connectDb();
-        const posts = await Post.find(userName && { userName });
+        const posts = await Post.find(filter);
         
         return new NextResponse(JSON.stringify(posts), { status: 200 });
 
@@ -20,7 +22,7 @@ export const GET = async (request) => {
 }
 
 
-export const POST = async (request) => {
+export const POST = async (request: NextRequest) => {
 	const body = await request.json();
     const newPost = new Post(body);
 

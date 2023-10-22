@@ -40,6 +40,7 @@ const links = [
 
 const Navbar = () => {
     const session = useSession();
+    
 
 
   return (
@@ -48,17 +49,15 @@ const Navbar = () => {
         <div className={styles.links}>
             <DarkModeToggle />
               { links.map(link => (
-                <Link key={ link.id } 
+                <Link key={ `${link.id}-${link.title}` } 
                 href={ link.url } 
                 className={ styles.link }>
                     {link.title}
                 </Link>))}
               {session.status === 'authenticated' && (
-                  <button className={ styles.logout } onClick={ signOut }>Logout</button>
+                  <button className={ styles.logout } onClick={(e)=>{signOut()}}>Logout</button>
               )
               }
-              
-              
         </div>
     </div>
   )

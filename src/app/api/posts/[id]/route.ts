@@ -1,8 +1,8 @@
-import connectDb from "@/utils/db";
-import { NextResponse } from "next/server";
-import Post from "@/models/Post";
+import connectDb from "@/src/utils/db";
+import { NextRequest, NextResponse } from "next/server";
+import Post from "@/src/models/Post";
 
-export const GET = async (request, {params}) => {
+export const GET = async (request: NextRequest, { params }: { params: { id: string } }) => {
     const { id } = params;
 	try {
 		await connectDb();
@@ -15,7 +15,7 @@ export const GET = async (request, {params}) => {
 	}
 };
 
-export const DELETE = async (request, { params }) => {
+export const DELETE = async (request: NextRequest, { params }:{ params: { id: string } }) => {
 	const { id } = params;
 	try {
 		await connectDb();

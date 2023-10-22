@@ -1,9 +1,9 @@
-import connectDb from "@/utils/db";
-import { NextResponse } from "next/server";
+import connectDb from "@/src/utils/db";
+import { NextRequest, NextResponse } from "next/server";
 import bcrypt from "bcrypt"
-import User from "@/models/User";
+import User from "@/src/models/User";
 
-export const POST = async (request) => {
+export const POST = async (request: NextRequest) => {
     const { name, email, password } = await request.json();
 
     await connectDb(); 
@@ -22,7 +22,7 @@ export const POST = async (request) => {
 					status: 201,
 				});
 
-    }catch(err) {
+    }catch(err: any) {
         return new NextResponse(err.message, {
             status: 500,
         });

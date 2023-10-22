@@ -1,14 +1,14 @@
 import React from 'react'
 import styles from './page.module.css'
 import Image from 'next/image'
-import Button from '@/components/Button/Button'
+import Button from '../../components/Button/Button'
 
 const About = () => {
   return (
     <div className={ styles.container }>
       <div className={ styles.imgContainer }>
         <Image
-          src="https://images.pexels.com/photos/3194521/pexels-photo-3194521.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+          src="https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
           fill={ true }
           alt=""
           className={ styles.img }

@@ -1,7 +1,7 @@
 'use client'
 import { signIn, useSession } from 'next-auth/react'
 import styles from './page.module.css'
-import React from 'react'
+import React, { FormEvent } from 'react'
 import { useRouter } from 'next/navigation'
 
 const Login = () => {
@@ -16,10 +16,10 @@ const Login = () => {
     router?.push('/dashboard');
   }
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    const email = e.target[0].value;
-    const password = e.target[1].value;
+    const email = ((e.target as HTMLFormElement).elements[0] as HTMLInputElement).value;
+    const password = ((e.target as HTMLFormElement).elements[1] as HTMLInputElement).value;
 
     signIn("credentials", {email, password});
   }

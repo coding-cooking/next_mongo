@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from './page.module.css'
 import Image from 'next/image'
-import Button from '@/components/Button/Button'
+import Button from '@/src/components/Button/Button';
 
 export const metadata = {
   title: 'Alias Dev Contact Information',
@@ -27,8 +27,8 @@ const Contact = () => {
           <textarea
             className={ styles.textArea }
             placeholder='message'
-            cols='30'
-            rows='10'
+            cols={30}
+            rows={10}
           ></textarea>
           <Button url='' text='Send' />
         </form>

@@ -5,6 +5,8 @@ import styles from './DarkModeToggle.module.css'
 import Image from 'next/image'
 import { ThemeContext } from '../../context/ThemeContext'
 
+
+
 const DarkModeToggle = () => {
     const { toggle, mode } = useContext(ThemeContext);
 
